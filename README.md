@@ -1,8 +1,5 @@
 # Student Performance Evaluation System
 
-## Student Name
-
-Saron Abebe
 
 ## Project Description
 
