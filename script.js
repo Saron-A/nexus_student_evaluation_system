@@ -1,18 +1,14 @@
-const studentInfo = document.querySelector(".studentInfo");
-
 const name = "John Doe";
 const course = "Javascript";
 const age = 21;
 const score = 78;
 const attendance = 85;
 
-const displayStudentInfo = (name, course, score, age, attendance) => {
-  const cleanedName = name.trim().toUpperCase();
-  const isJavascriptStudent = course
-    .trim()
-    .toUpperCase()
-    .includes("JAVASCRIPT");
+const cleanedName = name.trim().toUpperCase();
+const isJavaScriptStudent = course.trim().toUpperCase().includes("JAVASCRIPT");
+const resultMessage = score >= 60 ? "Pass" : "Fail";
 
+const displayStudentInfo = (name, course, score, age, attendance) => {
   return `
 Name: ${cleanedName}
 Age: ${age}
@@ -54,10 +50,9 @@ const checkEligibility = (score, attendance) => {
     : "Not Eligible for Exam";
 };
 
-calculateGrade(score);
-getStudentStatus(score);
-checkEligibility(score, attendance);
-displayStudentInfo(name, course, score, age, attendance);
+const grade = calculateGrade(score);
+const status = getStudentStatus(score);
+const eligibility = checkEligibility(score, attendance);
 
 const academyName = "Nexus Academy";
 
@@ -76,3 +71,14 @@ function demonstrateScope() {
 }
 
 demonstrateScope();
+
+const finalReport = `${displayStudentInfo(name, course, score, age, attendance)} Grade: ${grade}
+Performance Status: ${status}
+Exam Eligibility: ${eligibility}
+JavaScript Student: ${isJavaScriptStudent}
+Pass/Fail: ${resultMessage} `;
+
+console.log(finalReport);
+
+const studentInfo = document.querySelector(".studentInfo");
+studentInfo.textContent = finalReport;
