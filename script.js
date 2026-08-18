@@ -8,7 +8,7 @@ const cleanedName = name.trim().toUpperCase();
 const isJavaScriptStudent = course.trim().toUpperCase().includes("JAVASCRIPT");
 const resultMessage = score >= 60 ? "Pass" : "Fail";
 
-const displayStudentInfo = (name, course, score, age, attendance) => {
+const displayStudentInfo = (cleanedName, course, score, age, attendance) => {
   return `
 Name: ${cleanedName}
 Age: ${age}
@@ -35,7 +35,7 @@ const calculateGrade = (score) => {
 const getStudentStatus = (score) => {
   if (score >= 90) {
     return "Excellent Performance";
-  } else if (score >= 60 && score <= 89) {
+  } else if (score >= 60) {
     return "Passed";
   } else {
     return "Failed";
@@ -72,7 +72,7 @@ function demonstrateScope() {
 
 demonstrateScope();
 
-const finalReport = `${displayStudentInfo(name, course, score, age, attendance)} Grade: ${grade}
+const finalReport = `${displayStudentInfo(name, course, score, age, attendance)}Grade: ${grade}
 Performance Status: ${status}
 Exam Eligibility: ${eligibility}
 JavaScript Student: ${isJavaScriptStudent}
